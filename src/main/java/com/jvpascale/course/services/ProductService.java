@@ -1,0 +1,27 @@
+package com.jvpascale.course.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.jvpascale.course.entities.Product;
+import com.jvpascale.course.repositories.ProductRepository;
+
+@Service
+public class ProductService {
+
+	@Autowired
+	private ProductRepository ProductRepository;
+	
+	public List<Product> FindAll(){
+		return ProductRepository.findAll();
+	}
+	
+	public Product findById(Long id) {
+		return ProductRepository.findById(id).get();
+	}
+	
+}
